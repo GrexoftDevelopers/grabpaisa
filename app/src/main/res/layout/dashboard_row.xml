@@ -1,0 +1,54 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
+
+        <!--image for the world wonder-->
+        <ImageView
+            android:id="@+id/imageViewCategory"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="Just a demo"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:padding="2dp"
+            android:src="@drawable/fiat_icon_login" />
+
+        <!--name of the world wonder-->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:background="#00000000"
+            android:padding="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/home" />
+
+            <TextView
+                android:id="@+id/textViewCategoryName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left|center"
+                android:layout_marginLeft="16dp"
+                android:text="FIATE"
+                android:textColor="#ffffff"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

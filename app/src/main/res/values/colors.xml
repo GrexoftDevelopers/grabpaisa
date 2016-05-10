@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorRipple">#ccef7c32</color>
+    <color name="colorPrimary">#FF4500</color>
+    <color name="colorPrimaryDark">#bf360c</color>
+    <color name="colorAccent">#8b8b8b</color>
+    <color name="colorFloatClicked">#90868686</color>
+    <color name="textColor">#363636</color>
+    <color name="hintColor">#848484</color>
+    <color name="list">#848484</color>
+    <color name="Transparent">#00000000</color>
+    <color name="White">#FFFFFF</color>
+
+    <color name="actionbar_color">#FF4500</color>
+    <color name="drawer_arrow_second_color">#303f9f</color>
+    <color name="ldrawer_color">#FFFFFF</color>
+    <color name="date_bg_color">#f2f2f2</color>
+    <color name="splash_bg_color">#237cc0</color>
+    <color name="Blue1">#68baf9</color>
+    <color name="Blue2">#39a4f6</color>
+    <color name="Blue3">#2a95e6</color>
+    <color name="Blue4">#237CC0</color>
+    <color name="orange">#FFA500</color>
+    <color name="list_background_pressed">#3A3A3A</color>
+    <color name="background">#fafafa</color>
+
+    <color name="separator">#d7d7d7</color>
+    <color name="DashSeparator">#DFDFDF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="yellow">#f7c800</color>
+    <color name="fuchsia">#FF00FF</color>
+    <color name="red">#FF0000</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="gray">#d3d3d3</color>
+    <color name="olive">#808000</color>
+    <color name="purple">#800080</color>
+    <color name="maroon">#800000</color>
+    <color name="aqua">#00FFFF</color>
+    <color name="lime">#00FF00</color>
+    <color name="teal">#008080</color>
+    <color name="green">#008000</color>
+    <color name="blue">#0000FF</color>
+    <color name="navy">#000080</color>
+    <color name="black">#000000</color>
+    <color name="magenta">#d80e47</color>
+    <color name="gray_low">#d3d3d3</color>
+    <color name="view_paymnt">#274966</color>
+
+</resources>

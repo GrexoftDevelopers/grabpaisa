@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Grab Paisa</string>
+
+    <string name="title_activity_select_brand">SelectBrand</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="action_done">Done</string>
+    <string name="title_activity_splash">Splash</string>
+    <string name="title_activity_creat_acount">Create Acount</string>
+    <string name="drawer_open">drawer_open</string>
+    <string name="label_myticket">My Tickets</string>
+    <string name="label_selectBrand">Select a Brand</string>
+    <string name="label_selectBusiness">Select a Business</string>
+    <string name="label_userProfile">User Profile</string>
+    <string name="label_addProduct">Add a product</string>
+    <string name="drawer_close">drawer_close</string>
+    <string name="app_description">Android drawer icon with material design animation</string>
+    <string name="title_activity_survey_home">SurveyHome</string>
+    <string name="title_activity_demo">DemoActivity</string>
+    <string name="facebook_app_id">430127467174110</string>
+
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_expandable_list">ExpandableList Demo</string>
+    <string name="comment">Custom3r may have added brand(s) or business(es) which are in the
+        business of Product Repair, Product Servicing and Maintenance which may or may not be
+        "Authorized Service Centers" of the product or service which is requested by the end customer. It is the responsibility of the customer who has requested the said Product or Service to be repaired and/or maintained by a brand or business, to conduct the due diligence of whether the brand or business is fit to handle their customer care service requests or not. Custom3r shall in no way be responsible to any extent for any faulty service, inappropriate action or delay done or any unsatisfactory action of any nature done by any brand or business listed on Custom3r. </string>
+    <string name="title_activity_select_business">SelectBusiness</string>
+    <string name="title_activity_my_ticket">MyTicket</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="drawerItem">
+        <item>Dashboard</item>
+        <item>About</item>
+        <item>Like Us</item>
+        <item>My Profile</item>
+        <item>Log out</item>
+    </string-array>
+    <string name="title_activity_create_ticket">CreateTicket</string>
+
+    <string name="app_left" formatted="false">Now You Can Skip any %d %s from the Challenge.</string>
+
+</resources>

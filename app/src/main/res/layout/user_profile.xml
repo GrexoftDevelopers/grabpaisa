@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    tools:context="com.vizzmedia.surve.survtapp.UserProfile">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_weight=".4"
+                    android:fontFamily="sans-serif"
+
+                    android:gravity="center|left"
+                    android:text="Name"
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="13dp"/>
+
+
+                <EditText
+                    android:id="@+id/et_user_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".6"
+                    android:background="@drawable/layout_selector_bg"
+
+                    android:fontFamily="sans-serif"
+                    android:gravity="center|left"
+                    android:hint="Username"
+                    android:padding="3dp"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="13dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_weight=".4"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center|left"
+                    android:text="Email"
+
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="13dp"/>
+
+
+                <EditText
+                    android:id="@+id/et_user_email"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".6"
+                    android:background="@drawable/layout_selector_bg"
+
+                    android:fontFamily="sans-serif"
+                    android:gravity="center|left"
+                    android:hint="Enter your email id"
+                    android:inputType="textEmailAddress"
+                    android:padding="3dp"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="13dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+
+                android:padding="10dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_weight=".4"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center|left"
+                    android:text="Mobile"
+
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="13dp"/>
+
+
+                <EditText
+                    android:id="@+id/et_user_mobile"
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".6"
+                    android:background="@drawable/layout_selector_bg"
+
+                    android:fontFamily="sans-serif"
+                    android:gravity="center|left"
+                    android:hint="Enter your mobile number"
+                    android:inputType="phone"
+                    android:padding="3dp"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="13dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_weight=".4"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center|left"
+                    android:text="Current password"
+
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="13dp"/>
+
+
+                <EditText
+                    android:id="@+id/et_user_current_password"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".6"
+                    android:background="@drawable/layout_selector_bg"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center|left"
+                    android:hint="Current password"
+                    android:inputType="textPassword"
+                    android:padding="3dp"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="13dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_weight=".4"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center|left"
+                    android:text="New password"
+
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="13dp"/>
+
+
+                    <EditText
+                        android:id="@+id/et_user_new_password"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".6"
+                        android:background="@drawable/layout_selector_bg"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center|left"
+                        android:hint="New password"
+                        android:inputType="textPassword"
+
+                        android:padding="3dp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="13dp"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+
+                android:padding="10dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_weight=".4"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center|left"
+                    android:text="Confirm password"
+
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="13dp"/>
+
+
+                    <EditText
+                        android:id="@+id/et_user_repeat_password"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".6"
+                        android:background="@drawable/layout_selector_bg"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center|left"
+                        android:hint="Repeat password"
+                        android:inputType="textPassword"
+
+                        android:padding="3dp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="13dp"/>
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>
