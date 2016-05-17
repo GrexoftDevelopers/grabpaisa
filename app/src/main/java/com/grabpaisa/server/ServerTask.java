@@ -37,6 +37,10 @@ public class ServerTask extends AsyncTask<String,String, String> {
     public static final String API_GET_RECENT_RECHARGES = "GetCustRechargeList";
     public static final String API_FORGOT_PASSWORD = "ForgetPassword";
     public static final String API_GET_OPERATOR_LIST = "GetOperatorList";
+    public static final String API_CHANGE_PASSWORD = "ChangeCustomerPassword";
+    public static final String API_UPDATE_PROFILE = "CustomerEditProfile";
+    public static final String API_RECHARGE = "CustRechargeRequest";
+    public static final String API_DOWNLOAD_APP = "AppDownloadByCustomer";
 
     private String apiName;
 
@@ -79,6 +83,19 @@ public class ServerTask extends AsyncTask<String,String, String> {
             case API_FORGOT_PASSWORD:
                 data = new SoapObject(NAMESPACE,"oCustMobile");
                 break;
+            case API_CHANGE_PASSWORD:
+                data = new SoapObject(NAMESPACE,"oCustChangePass");
+                break;
+            case API_UPDATE_PROFILE:
+                data = new SoapObject(NAMESPACE,"oCustEditProfile");
+                break;
+            case API_RECHARGE:
+                data = new SoapObject(NAMESPACE,"oCustRechargeRequest");
+                break;
+            case API_DOWNLOAD_APP:
+                data = new SoapObject(NAMESPACE,"oAppNamedDownloadByCustomer");
+                break;
+
         }
 
         if(params != null && data != null){
@@ -171,6 +188,18 @@ public class ServerTask extends AsyncTask<String,String, String> {
                 break;
             case API_FORGOT_PASSWORD:
                 urlBuilder.append("WSLogin.asmx?op=ForgetPassword");
+                break;
+            case API_CHANGE_PASSWORD:
+                urlBuilder.append("EditProfile.asmx?op=ChangeCustomerPassword");
+                break;
+            case API_UPDATE_PROFILE:
+                urlBuilder.append("EditProfile.asmx?op=CustomerEditProfile");
+                break;
+            case API_RECHARGE:
+                urlBuilder.append("Recharge.asmx?op=CustRechargeRequest");
+                break;
+            case API_DOWNLOAD_APP:
+                urlBuilder.append("WSDownLoadApp.asmx?op=AppDownloadByCustomer");
                 break;
         }
         HttpTransportSE ht = new HttpTransportSE(Proxy.NO_PROXY,urlBuilder.toString(),60000);

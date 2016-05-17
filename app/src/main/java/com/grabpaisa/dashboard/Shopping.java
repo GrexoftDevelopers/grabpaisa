@@ -1,16 +1,23 @@
 package com.grabpaisa.dashboard;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,6 +47,8 @@ public class Shopping extends Fragment {
     private ListView recentRechargeList;
 
     private TextView txtNoRecharge;
+    private Button btnRecharge;
+    private EditText etAmount, etMobile;
 
     public Shopping() {
         // Required empty public constructor
@@ -65,7 +74,14 @@ public class Shopping extends Fragment {
 
         txtNoRecharge = (TextView)view.findViewById(R.id.txt_error_no_recharge);
 
+        etAmount = (EditText)view.findViewById(R.id.et_amount);
+        etMobile = (EditText)view.findViewById(R.id.et_mobile);
+
+        btnRecharge = (Button)view.findViewById(R.id.btn_recharge);
+
         if(mySingletone.telecomOperators == null || mySingletone.telecomOperators.isEmpty()){
+
+            btnRecharge.setEnabled(false);
 
             ServerTask getOperatorsTask = new ServerTask(ServerTask.API_GET_OPERATOR_LIST, null, new ServerTask.Callback() {
                 @Override
@@ -88,6 +104,7 @@ public class Shopping extends Fragment {
                                 mySingletone.telecomOperators.add(telecomOperator);
                                 operatorNames.add(operatorJson.getString("OperatorName"));
                             }
+                            btnRecharge.setEnabled(true);
                         }
 
                     } catch (JSONException e) {
@@ -112,7 +129,7 @@ public class Shopping extends Fragment {
 
         HashMap<String, Object> params = new HashMap<String, Object>();
 
-        params.put("CustRegNo",Long.parseLong(mySingletone.registrationId));
+        params.put("CustRegNo", Long.parseLong(mySingletone.registrationId));
 
         ServerTask getRecentRechargeTask = new ServerTask(ServerTask.API_GET_RECENT_RECHARGES, params, new ServerTask.Callback() {
             @Override
@@ -131,7 +148,7 @@ public class Shopping extends Fragment {
 
                             for(int i = 0 ; i < jsonArray.length() ; i++){
                                 jsonObject = jsonArray.getJSONObject(i);
-                                int sNo = Integer.parseInt(jsonObject.getString("SN"));
+                                String sNo = jsonObject.getString("SN");
                                 String amount = jsonObject.getString("Amt");
                                 String operatorName = jsonObject.getString("OperatorName");
                                 String requestDate = jsonObject.getString("RequesDate");
@@ -166,7 +183,68 @@ public class Shopping extends Fragment {
 
         getRecentRechargeTask.execute();
 
+        btnRecharge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                int operatorIndex = spinnerOperators.getSelectedItemPosition();
+                String operatorCode = mySingletone.telecomOperators.get(operatorIndex).getCode();
+
+                String mobile = etMobile.getText().toString();
+                if(mobile.equals("")){
+                    Toast.makeText(getActivity(), "enter mobile number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                String amount = etAmount.getText().toString();
+                if(amount.equals("") && Integer.parseInt(amount) < 30){
+                    Toast.makeText(getActivity(), "Amount should be at least 30", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                HashMap<String, Object> params = new HashMap<String, Object>();
+                params.put("CustRegno",mySingletone.registrationId);
+                params.put("amt", amount);
+                params.put("OperatorCode", operatorCode);
+                params.put("Mobile",mobile);
+
+                final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+                progressDialog.setMessage("sending recharge request");
+
+                ServerTask rechargeTask = new ServerTask(ServerTask.API_RECHARGE, params, new ServerTask.Callback() {
+                    @Override
+                    public void onCompleted(String response) {
+                        progressDialog.dismiss();
+                        if(response == null || response.equals("null")){
+                            Toast.makeText(getActivity(), "Recharge request failed", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        try {
+                            JSONObject responseJSON = new JSONArray(response).getJSONObject(0);
+                            String resResult = responseJSON.getString("ResResult");
+                            if(!resResult.equals("Request Submitted Successfully.")){
+                                Toast.makeText(getActivity(), "Recharge request failed", Toast.LENGTH_SHORT).show();
+                            }
+                            else{
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+                                alertDialog.setMessage("Request processed. You will receive a recharge message shortly.").setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+                progressDialog.show();
+                rechargeTask.execute();
+
+            }
+        });
 
         return view;
     }

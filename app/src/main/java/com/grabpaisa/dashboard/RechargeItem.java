@@ -5,7 +5,7 @@ package com.grabpaisa.dashboard;
  */
 public class RechargeItem {
 
-    private int sNo;
+    private String sNo;
 
     private String amount;
 
@@ -17,7 +17,7 @@ public class RechargeItem {
 
     private String approvedDate;
 
-    public RechargeItem(int sNo, String amount, String operatorName, String status, String requestDate, String approvedDate) {
+    public RechargeItem(String sNo, String amount, String operatorName, String status, String requestDate, String approvedDate) {
         this.amount = amount;
         this.operatorName = operatorName;
         this.status = status;
@@ -46,7 +46,7 @@ public class RechargeItem {
         return approvedDate;
     }
 
-    public int getsNo() {
+    public String getsNo() {
         return sNo;
     }
 }

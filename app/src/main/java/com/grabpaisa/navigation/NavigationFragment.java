@@ -5,7 +5,9 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -179,6 +181,7 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
 		   mDrawerLayout.closeDrawers();
 		   Fragment fragment = null;
 		   FragmentManager fragmentManager = getFragmentManager();
+			Intent browserIntent = null;
 		   switch (position) {
 			  case 0:
 				 fragment = new DashBoard();
@@ -210,14 +213,22 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
 //			  }
 				 break;
 			  case 1:
-				 fragment = new AboutUs();
-				 fragmentManager.beginTransaction()
-					.replace(R.id.container, fragment).addToBackStack(null).commit();
+//				 fragment = new AboutUs();
+//				 fragmentManager.beginTransaction()
+//					.replace(R.id.container, fragment).addToBackStack(null).commit();
+
+				  browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://grabpaisa.com/how-we-work.html"));
+				  startActivity(browserIntent);
+
 				 break;
 			  case 2:
-				 fragment = new LikeUs();
-				 fragmentManager.beginTransaction()
-					.replace(R.id.container, fragment).addToBackStack(null).commit();
+//				 fragment = new LikeUs();
+//				 fragmentManager.beginTransaction()
+//					.replace(R.id.container, fragment).addToBackStack(null).commit();
+
+				  browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/Grabpaisa-1591027197860836/"));
+				  startActivity(browserIntent);
+
 				 break;
 
 			  case 3:

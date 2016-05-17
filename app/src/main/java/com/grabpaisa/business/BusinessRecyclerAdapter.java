@@ -11,10 +11,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.grabpaisa.R;
 import com.grabpaisa.dashboard.App;
+import com.grabpaisa.login.MySingletone;
+import com.grabpaisa.server.ServerTask;
 
 
 /**
@@ -49,6 +52,17 @@ public class BusinessRecyclerAdapter extends RecyclerView.Adapter<BusinessRecycl
         holder.btnDownlaod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                HashMap<String, Object> params = new HashMap<String, Object>();
+                MySingletone obj = MySingletone.getInstance();
+                params.put("CustRegNo", obj.registrationId);
+                params.put("AppName",apps.get(position).getName());
+                ServerTask serverTask = new ServerTask(ServerTask.API_DOWNLOAD_APP, params, new ServerTask.Callback() {
+                    @Override
+                    public void onCompleted(String response) {
+
+                    }
+                });
+                serverTask.execute();
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(apps.get(position).getDLink()));
                 browserIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(browserIntent);

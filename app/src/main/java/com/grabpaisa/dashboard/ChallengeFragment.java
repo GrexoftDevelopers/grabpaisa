@@ -1,5 +1,6 @@
 package com.grabpaisa.dashboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -30,7 +31,7 @@ public class ChallengeFragment extends Fragment {
     private BusinessRecyclerAdapter adapter;
     RecyclerView recyclerView;
 
-    private Button btnGetApps;
+    private Button btnGetApps, btnInvite;
 
     MySingletone mySingletone;
 
@@ -112,6 +113,7 @@ public class ChallengeFragment extends Fragment {
                     try {
                         JSONObject info = new JSONArray(response).getJSONObject(0);
                         mySingletone.referralId = info.getString("Loginid");
+                        mySingletone.email = info.getString("EmailID");
                         mySingletone.name = info.getString("Name");
                         mySingletone.upLineId = info.getString("UplineID");
                         mySingletone.news = info.getString("LiveNews");
@@ -121,6 +123,7 @@ public class ChallengeFragment extends Fragment {
                         mySingletone.totalRecharge = Float.parseFloat(info.getString("TotRecharge"));
                         mySingletone.lastRecharge = Float.parseFloat(info.getString("LastRecharge"));
                         mySingletone.mobile = info.getString("Mobile");
+                        mySingletone.address = info.getString("Address");
 
                         fillData();
 
@@ -138,6 +141,32 @@ public class ChallengeFragment extends Fragment {
         else{
             fillData();
         }
+
+        btnInvite = (Button)view.findViewById(R.id.btn_invite);
+        btnInvite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent share = new Intent();
+
+                share.setAction(Intent.ACTION_SEND);
+
+                share.setType("text/plain");
+
+                String shareDescription = "Download GrabPaisa and earn unlimited money."
+                        + "\n"
+                        + "Use referral id : " + mySingletone.referralId + " to register"
+                        + "\n"
+                        + "https://play.google.com/store/apps/details?id=com.grabpaisa&referrer=utm_source%3D" + mySingletone.referralId;
+
+                share.putExtra(Intent.EXTRA_TEXT, shareDescription);
+
+                share.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                getActivity().startActivity(Intent.createChooser(share,
+                        "Select app to share"));
+
+            }
+        });
 
         return view;
     }

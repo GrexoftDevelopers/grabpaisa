@@ -103,7 +103,43 @@
                 android:layout_marginTop="15dp"
                 android:gravity="center"
                 android:orientation="horizontal"
+                android:padding="10dp"
+                android:weightSum="1">
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_weight=".4"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center|left"
+                    android:text="Address"
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="13dp"/>
+
+
+                <EditText
+                    android:id="@+id/et_user_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".6"
+                    android:background="@drawable/layout_selector_bg"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center|left"
+                    android:hint="Enter your address"
+                    android:inputType="textEmailAddress"
+                    android:padding="3dp"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="13dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:orientation="horizontal"
                 android:padding="10dp"
                 android:weightSum="1">
 
@@ -138,6 +174,22 @@
                     android:textSize="13dp"/>
 
             </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btn_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/button_background_selector_resves"
+                android:textColor="@drawable/button_text_selector_revers"
+                android:text="update"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#cccccc"
+                android:layout_margin="10dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -261,9 +313,14 @@
 
             </LinearLayout>
 
-
-
-
+            <Button
+                android:id="@+id/btn_change_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/button_background_selector_resves"
+                android:textColor="@drawable/button_text_selector_revers"
+                android:text="change password"/>
 
         </LinearLayout>
 

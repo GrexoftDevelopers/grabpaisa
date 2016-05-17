@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String password = etPassword.getText().toString();
 
 
-                if (userName.equals("") || password.equals("")) {
+                if (userName.equals("") ){//|| password.equals("")) {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
                 } else {
 

@@ -8,8 +8,8 @@ android {
         applicationId "com.grabpaisa"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 2
-        versionName "1.0"
+        versionCode 4
+        versionName "1.1"
     }
     buildTypes {
         release {
@@ -29,4 +29,7 @@ dependencies {
     compile 'com.balysv:material-ripple:1.0.2'
     compile 'com.github.ganfra:material-spinner:1.1.1'
     compile files('libs/ksoap2.jar')
+    compile 'com.google.android.gms:play-services-analytics:8.4.0'
 }
+
+apply plugin: 'com.google.gms.google-services'

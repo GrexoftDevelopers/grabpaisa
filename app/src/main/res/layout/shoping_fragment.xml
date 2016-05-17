@@ -23,15 +23,26 @@
         android:layout_margin="10dp"></Spinner>
 
     <EditText
-        android:id="@+id/et_amount"
+        android:id="@+id/et_mobile"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_below="@+id/spinner_operators"
         android:layout_centerHorizontal="true"
+        android:hint="mobile number"
+        android:padding="10dp"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/et_amount"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/et_mobile"
+        android:layout_centerHorizontal="true"
         android:hint="Amount"
         android:padding="10dp"
-        android:inputType="numberDecimal"/>
+        android:inputType="number"/>
 
     <Button
         android:id="@+id/btn_recharge"

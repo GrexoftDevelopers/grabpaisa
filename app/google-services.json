@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "596826508436",
+    "project_id": "grabpaisa-6045d"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596826508436:android:4bb25d33fe8e7963",
+        "android_client_info": {
+          "package_name": "com.grabpaisa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0CooTPWW7dNyoIL0ntcrRycbUP4RDbSA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-77884706-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

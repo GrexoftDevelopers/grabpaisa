@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.grabpaisa.BuildConfig;
 import com.grabpaisa.R;
 import com.grabpaisa.navigation.HomeActivity;
 import com.grabpaisa.server.ServerTask;
@@ -86,6 +87,11 @@ public class CreateAcount extends AppCompatActivity implements View.OnClickListe
         etMobile = (EditText) findViewById(R.id.et_mobile);
         etName = (EditText)findViewById(R.id.et_TuitonName);
         etReferenceId = (EditText)findViewById(R.id.et_RefranceId);
+
+        SharedPreferences sharedPreferences = getSharedPreferences(BuildConfig.APPLICATION_ID, MODE_PRIVATE);
+        String referrer = sharedPreferences.getString("referrer",null);
+
+        etReferenceId.setText(referrer);
 
         llCreatAccount.setOnTouchListener(this);
         keyboardUtil.hideKeyboard(this);

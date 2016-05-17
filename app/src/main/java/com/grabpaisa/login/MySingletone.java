@@ -20,7 +20,7 @@ public class MySingletone {
 
     public String registrationId;
 
-    public String referralId, upLineId, name, news, mobile;
+    public String email, referralId, upLineId, name, news, mobile, address;
 
     public float totalBalance, totalEarned, totalRecharge, lastRecharge;
 
