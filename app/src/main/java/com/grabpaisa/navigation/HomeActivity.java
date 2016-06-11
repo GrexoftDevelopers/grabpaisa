@@ -17,6 +17,8 @@ public class HomeActivity extends AppCompatActivity{
 
      ProgressDialog pd;
 
+	public boolean firstTimeLogin;
+
 
 
      String strResponse, Ticket_No, Ticket_Id, Product_name, Brand_name, Tdate, ToDisplay;
@@ -26,6 +28,8 @@ public class HomeActivity extends AppCompatActivity{
 		 super.onCreate(savedInstanceState);
 		 setContentView(R.layout.home_activity);
 		 Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+		 firstTimeLogin = getIntent().getExtras().getBoolean("fromCreateAccount");
 
 		 setSupportActionBar(toolbar);
 		 getSupportActionBar().setHomeButtonEnabled(false);

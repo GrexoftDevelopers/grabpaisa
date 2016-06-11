@@ -21,6 +21,7 @@ import java.util.HashMap;
 import com.grabpaisa.R;
 import com.grabpaisa.business.BusinessRecyclerAdapter;
 import com.grabpaisa.login.MySingletone;
+import com.grabpaisa.navigation.HomeActivity;
 import com.grabpaisa.server.ServerTask;
 
 /**
@@ -152,7 +153,7 @@ public class ChallengeFragment extends Fragment {
 
                 share.setType("text/plain");
 
-                String shareDescription = "Download GrabPaisa and earn unlimited money."
+                String shareDescription = "i refer to you link download grab paisa  and grab 42 rupees free recharge, me also get money from it. if you refer to your friends u will get more money."
                         + "\n"
                         + "Use referral id : " + mySingletone.referralId + " to register"
                         + "\n"
@@ -167,6 +168,15 @@ public class ChallengeFragment extends Fragment {
 
             }
         });
+
+        if(((HomeActivity)getActivity()).firstTimeLogin){
+            view.findViewById(R.id.txt_welcome_message).setVisibility(View.VISIBLE);
+            view.findViewById(R.id.txt_welcome_title).setVisibility(View.VISIBLE);
+        }
+        else{
+            view.findViewById(R.id.txt_welcome_message).setVisibility(View.GONE);
+            view.findViewById(R.id.txt_welcome_title).setVisibility(View.GONE);
+        }
 
         return view;
     }
@@ -195,7 +205,7 @@ public class ChallengeFragment extends Fragment {
 
         txtMobile.setText(mySingletone.mobile);
         txtReferralId.setText("Referral Id : " + mySingletone.referralId);
-        txtUplineId.setText("Upline Id : " + mySingletone.upLineId);
+        //txtUplineId.setText("Upline Id : " + mySingletone.upLineId);
         txtNews.setText(mySingletone.news);
         txtBalance.setText(mySingletone.totalBalance + "");
         txtAppsInstalled.setText(mySingletone.totalAppsInstalled + "");

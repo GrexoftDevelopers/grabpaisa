@@ -217,7 +217,7 @@
                     android:id="@+id/et_user_current_password"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".6"
+                    android:layout_weight=".5"
                     android:background="@drawable/layout_selector_bg"
                     android:fontFamily="sans-serif"
                     android:gravity="center|left"
@@ -227,6 +227,12 @@
                     android:textColor="@color/textColor"
                     android:textColorHint="@color/hintColor"
                     android:textSize="13dp"/>
+
+                <ImageButton
+                    android:id="@+id/btn_old_password_show"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"/>
 
             </LinearLayout>
 
@@ -256,7 +262,7 @@
                         android:id="@+id/et_user_new_password"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".6"
+                        android:layout_weight=".5"
                         android:background="@drawable/layout_selector_bg"
                         android:fontFamily="sans-serif"
                         android:gravity="center|left"
@@ -267,6 +273,12 @@
                         android:textColor="@color/textColor"
                         android:textColorHint="@color/hintColor"
                         android:textSize="13dp"/>
+
+                <ImageButton
+                    android:id="@+id/btn_new_password_show"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"/>
 
 
             </LinearLayout>
@@ -298,7 +310,7 @@
                         android:id="@+id/et_user_repeat_password"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".6"
+                        android:layout_weight=".5"
                         android:background="@drawable/layout_selector_bg"
                         android:fontFamily="sans-serif"
                         android:gravity="center|left"
@@ -309,6 +321,12 @@
                         android:textColor="@color/textColor"
                         android:textColorHint="@color/hintColor"
                         android:textSize="13dp"/>
+
+                <ImageButton
+                    android:id="@+id/btn_repeat_password_show"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"/>
 
 
             </LinearLayout>

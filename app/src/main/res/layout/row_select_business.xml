@@ -28,7 +28,7 @@
         android:background="@color/textColor"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:text="INSTAL"
+        android:text="INSTALL"
         android:textColor="#ffffff" />
 
 </RelativeLayout><!-- From: file:/E:/08102015/Custom3r/app/src/main/res/layout/row_select_business.xml -->

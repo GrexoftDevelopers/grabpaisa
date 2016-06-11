@@ -6,11 +6,14 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.grabpaisa.R;
@@ -75,19 +78,19 @@ public class UserProfile extends Fragment {
                 final String name = etName.getText().toString();
                 final String address = etAddress.getText().toString();
 
-                if(name.equals("")){
+                if (name.equals("")) {
                     Toast.makeText(getActivity(), "enter name", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(email.equals("")){
+                if (email.equals("")) {
                     Toast.makeText(getActivity(), "enter email", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 HashMap<String, Object> params = new HashMap<String, Object>();
                 params.put("CustRegNo", mySingletone.registrationId);
-                params.put("Name",name);
-                params.put("EmailId",email);
+                params.put("Name", name);
+                params.put("EmailId", email);
                 params.put("Address", address);
 
                 final ProgressDialog progressDialog = new ProgressDialog(getActivity());
@@ -97,17 +100,16 @@ public class UserProfile extends Fragment {
                     @Override
                     public void onCompleted(String response) {
                         progressDialog.dismiss();
-                        if(response == null || response.equals("null")){
+                        if (response == null || response.equals("null")) {
                             Toast.makeText(getActivity(), "Some error occured", Toast.LENGTH_SHORT).show();
                             return;
                         }
                         try {
                             JSONObject responseJSON = new JSONArray(response).getJSONObject(0);
                             int resResult = responseJSON.getInt("ResResult");
-                            if(resResult == 0){
+                            if (resResult == 0) {
                                 Toast.makeText(getActivity(), "update failed", Toast.LENGTH_SHORT).show();
-                            }
-                            else{
+                            } else {
                                 Toast.makeText(getActivity(), "profile updated", Toast.LENGTH_SHORT).show();
                                 mySingletone.email = email;
                                 mySingletone.address = address;
@@ -193,6 +195,51 @@ public class UserProfile extends Fragment {
 
             }
         });
+
+        ImageButton btnNewPasswordShow = (ImageButton)view.findViewById(R.id.btn_new_password_show);
+
+        btnNewPasswordShow.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    etNewPassword.setTransformationMethod(null);
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    etNewPassword.setTransformationMethod(new PasswordTransformationMethod());
+                }
+                return true;
+            }
+        });
+
+        ImageButton btnOldPasswordShow = (ImageButton)view.findViewById(R.id.btn_old_password_show);
+
+        btnOldPasswordShow.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    etCurrentPassword.setTransformationMethod(null);
+                }
+                else if(event.getAction() == MotionEvent.ACTION_UP){
+                    etCurrentPassword.setTransformationMethod(new PasswordTransformationMethod());
+                }
+                return true;
+            }
+        });
+
+        ImageButton btnRepeatPasswordShow = (ImageButton)view.findViewById(R.id.btn_repeat_password_show);
+
+        btnRepeatPasswordShow.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    etRepeatPassword.setTransformationMethod(null);
+                }
+                else if(event.getAction() == MotionEvent.ACTION_UP){
+                    etRepeatPassword.setTransformationMethod(new PasswordTransformationMethod());
+                }
+                return true;
+            }
+        });
+
 
         return view;
     }

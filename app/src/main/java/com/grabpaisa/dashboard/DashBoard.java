@@ -77,7 +77,7 @@ public class DashBoard extends Fragment {
         adapter.addFragment(challengeFragment, "Dashboard");
         adapter.addFragment(new Shopping(), "Recharge");
         viewPager.setAdapter(adapter);
-        //viewPager.setCurrentItem(1);
+        viewPager.setCurrentItem(1);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {

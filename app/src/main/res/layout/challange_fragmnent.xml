@@ -15,6 +15,26 @@
             android:layout_margin="4dp"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/txt_welcome_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:text="Welcome to Grab Paisa!!"/>
+
+            <TextView
+                android:id="@+id/txt_welcome_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:text="how can compete your task you seems some application download and register"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -63,7 +83,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif"
                             android:padding="10dp"
-                            android:text="Up Line ID 1324567"
+                            android:text="Up Line mobile no."
                             android:textColor="@color/textColor"
                             android:textStyle="bold" />
 
@@ -127,7 +147,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif"
                                 android:gravity="left"
-                                android:text="Skip any one from the task"
+                                android:text="You can skip any 1 app from the task"
                                 android:textColor="@color/hintColor" />
                         </LinearLayout>
                     </LinearLayout>
@@ -351,7 +371,7 @@
                         android:background="@android:color/transparent"
                         android:fontFamily="sans-serif"
                         android:padding="5dp"
-                        android:text="Apps Left in challenge"
+                        android:text="Apps Left in Task"
                         android:textColor="@color/textColor" />
 
                     <Button
