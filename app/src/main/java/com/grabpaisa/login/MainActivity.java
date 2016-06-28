@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String InternetError = "Oops!, Something's wrong in you internet connection. Please Try again";
     private MySingletone singletone;
 
+    public static final int RC_HOMEACTIVITY = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             b.putBoolean("fromCreateAccount", false);
             intent.putExtras(b);
             //   intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
+            startActivityForResult(intent, RC_HOMEACTIVITY);
         }
 
 
@@ -223,7 +225,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     b.putBoolean("fromCreateAccount", false);
                                     intent.putExtras(b);
                                     //   intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(intent);
+                                    startActivityForResult(intent, RC_HOMEACTIVITY);
 
                                 }
                             } catch (JSONException e) {
@@ -255,6 +257,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if(resultCode == RESULT_OK){
+            switch (requestCode){
+                case RC_HOMEACTIVITY:
+                    if(data.hasExtra("is_logged_in") && data.getExtras().getBoolean("is_logged_in")) {
+                        finish();
+                    }
+            }
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override

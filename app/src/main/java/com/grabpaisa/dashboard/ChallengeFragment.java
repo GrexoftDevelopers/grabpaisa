@@ -153,7 +153,7 @@ public class ChallengeFragment extends Fragment {
 
                 share.setType("text/plain");
 
-                String shareDescription = "i refer to you link download grab paisa  and grab 42 rupees free recharge, me also get money from it. if you refer to your friends u will get more money."
+                String shareDescription = "I just download an app from Google play store that gives you minimum 42 rupees free mobile recharge. Just try it."
                         + "\n"
                         + "Use referral id : " + mySingletone.referralId + " to register"
                         + "\n"

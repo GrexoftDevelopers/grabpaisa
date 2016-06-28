@@ -1,12 +1,14 @@
 package com.grabpaisa.navigation;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.grabpaisa.R;
 import com.grabpaisa.dashboard.DashBoard;
@@ -49,5 +51,11 @@ public class HomeActivity extends AppCompatActivity{
 
 	 }
 
-
+	@Override
+	public void onBackPressed() {
+		Intent intent = new Intent();
+		intent.putExtra("is_logged_in", true);
+		setResult(RESULT_OK, intent);
+		finish();
+	}
 }
